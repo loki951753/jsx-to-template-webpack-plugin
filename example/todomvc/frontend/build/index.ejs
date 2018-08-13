@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>React App</title>
+  </head>
+  <body>
+    <div class="todoapp" id="root"><div>
+    <header class="header">
+    <h1>todos</h1>
+    
+  </header>
+    <section class="main">
+      <% if(todosCount){ %><span>
+          <input class="toggle-all" type="checkbox"></input>
+          <label></label>
+        </span><% } else { %><%= todosCount %><% } %>
+      <ul class="todo-list">
+    <% (function(){ var todo;for(var index=0; index<filteredTodos.length; ++index){todo=filteredTodos[index]; %><div class="view">
+          <input class="toggle" type="checkbox" checked="<%= todo.completed %>"></input>
+          <label>
+            <%= todo.text %>
+          </label>
+          <button class="destroy"></button>
+        </div>
+<% }})() %>
+  </ul>
+      <% if(todosCount){ %><footer class="footer">
+      <span class="todo-count">
+        <strong><% if(activeCount){ %><%= activeCount %><% } else { %><%= "No" %><% } %></strong> <%= itemWord %> left
+      </span>
+      <ul class="filters">
+        <% (function(){ var filter;for(var index=0; index<filterTitles.length; ++index){filter=filterTitles[index]; %><li key="<%= filter %>">
+            
+          </li>
+<% }})() %>
+      </ul>
+      <% if(completedCount){ %><button class="clear-completed">Clear completed</button><% } else { %><%= completedCount %><% } %>
+    </footer><% } else { %><%= todosCount %><% } %>
+    </section>
+  </div></div>
+  
+
+</body></html>
